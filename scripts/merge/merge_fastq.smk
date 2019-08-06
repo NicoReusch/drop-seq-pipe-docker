@@ -32,7 +32,7 @@ rule all:
 
 rule merge_fastq_R1:
     input:
-        lambda wildcards: samplefiles(samples,'1')
+        lambda wildcards: samplefiles(wildcards.sample,'1')
     log:
         "/results/logs/merging/{sample}_R1.log"
     output:
@@ -46,7 +46,7 @@ rule merge_fastq_R1:
 
 rule merge_fastq_R2:
     input:
-        lambda wildcards: samplefiles(samples,'2')
+        lambda wildcards: samplefiles(wildcards.sample,'2')
     log:
         "/results/logs/merging/{sample}_R2.log"
     output:

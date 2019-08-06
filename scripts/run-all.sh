@@ -14,8 +14,9 @@ cp /config/config.yaml /results/config.yaml
 cp /samples.csv /results/samples.csv
 
 snakemake \
-      --snakefile scripts/merge/merge_fastq.smk
-
+      --snakefile scripts/merge/merge_fastq.smk \
+      --jobs $JOBS 	
+  
 snakemake \
     --use-conda \
     --jobs $JOBS \

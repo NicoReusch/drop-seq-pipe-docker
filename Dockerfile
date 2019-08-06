@@ -7,10 +7,10 @@ RUN echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
     rm ~/miniconda.sh
 ENV PATH /opt/conda/bin:$PATH
 
-#Gets the DropSeqPipe v0.4 from github
+#Gets the DropSeqPipe v0.41 from github
 RUN git clone https://github.com/Hoohm/dropSeqPipe.git && \
     cd dropSeqPipe && \
-    git checkout -b temp 48b0050c3e3627ff50f46e2951d05185f47e3fbe
+    git checkout -b temp fc78da72f4a50496519c13ed19633a1825b01b0b
 
 #Creates environment
 COPY environment.yaml .
