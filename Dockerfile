@@ -15,6 +15,7 @@ RUN git clone https://github.com/Hoohm/dropSeqPipe.git && \
 #Creates environment
 COPY environment.yaml .
 RUN conda env create -v --name dropSeqPipe --file environment.yaml
+
 RUN pip3 install pandas
 RUN pip3 install ftputil
 
@@ -25,8 +26,9 @@ ENV TARGETS "all"
 ENV SAMPLENAMES ""
 
 #Copies needed files and directories into container
-COPY config/config.yaml /config/
+COPY example/config/config.yaml /config/
 COPY scripts /scripts
+COPY /templates /templates
 
 RUN echo "" >> /dropSeqPipe/Snakefile
 
