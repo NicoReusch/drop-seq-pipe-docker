@@ -18,7 +18,8 @@ if [ "$DOWNSAMPLING" -eq 1 ]; then
     echo "Entering downsampling mode"
 
     # perform dropseq preprocessing on full data
-    cp /config/config.yaml /results/config.yaml
+    cp /config/config.yaml /output/results/config.yaml
+    cp /output/samples.csv /output/results/samples.csv
     snakemake \
         --use-conda \
         --jobs $JOBS \
@@ -32,7 +33,7 @@ if [ "$DOWNSAMPLING" -eq 1 ]; then
     # create folder  
     if [ ! -d "/output/results_ds/" ]; then
     mkdir /output/results_ds
-    mkdir /downsampled_data
+    mkdir /output/downsampled_data
     fi
     # copy config file
     cp /config/config_ds.yaml /output/results_ds/config.yaml
@@ -66,7 +67,7 @@ python /scripts/samplescsv.py \
        --samplenames "$SAMPLENAMES" \
        --ncells $NUMCELLS \
        --fastqpath /output/raw_data \
-       --csvpath /output/samples.csv
+       --csvpath /output/results/samples.csv
 
 # snakemake only merged data 
     cp /config/config.yaml /output/results/config.yaml

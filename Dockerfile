@@ -26,8 +26,9 @@ ENV TARGETS "all"
 ENV SAMPLENAMES ""
 
 #Copies needed files and directories into container
-COPY config/config.yaml /config/
+COPY example/config/config.yaml /config/
 COPY scripts /scripts
+COPY /templates /templates
 
 RUN echo "" >> /dropSeqPipe/Snakefile
 
