@@ -10,7 +10,7 @@ ENV PATH /opt/conda/bin:$PATH
 #Gets the DropSeqPipe v0.41 from github
 RUN git clone https://github.com/Hoohm/dropSeqPipe.git && \
     cd dropSeqPipe && \
-    git checkout -b temp fc78da72f4a50496519c13ed19633a1825b01b0b
+    git checkout -b temp 4fc0de4b73588c22e2df78c9e0eae8b928d70e76
 
 #Creates environment
 COPY environment.yaml .
